@@ -5,10 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.List;
 
-import static org.mockito.Matchers.contains;
 import static org.mockito.Mockito.*;
 
 public class ExampleTest {
@@ -21,7 +18,8 @@ public class ExampleTest {
     @Test
     public void shouldDisplayWelcomeMessage(){
         PrintStream printStream = mock(PrintStream.class);
-        new Biblioteca(printStream);
+        Biblioteca biblioteca = new Biblioteca(printStream);
+        biblioteca.printWelcomeMessage();
         verify(printStream).println("Welcome to the Biblioteca");
     }
 }
