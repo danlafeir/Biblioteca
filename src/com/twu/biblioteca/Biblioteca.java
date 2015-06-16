@@ -13,10 +13,17 @@ public class Biblioteca {
     Biblioteca(List<Book> books, PrintStream printStream){
         this.books = books;
         this.printStream = printStream;
+    }
+
+    public void printWelcomeMessage() {
         printStream.println("Welcome to the Biblioteca!");
     }
 
     public void printListOfBooks() {
-        printStream.println("BookName");
+        if(!books.isEmpty()){
+            printStream.println("BookName");
+        } else {
+            printStream.println("");
+        }
     }
 }

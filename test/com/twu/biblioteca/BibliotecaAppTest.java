@@ -21,7 +21,8 @@ public class BibliotecaAppTest {
     public void shouldDisplayWelcomeMessage(){
         PrintStream printStream = mock(PrintStream.class);
         List<Book> books = new ArrayList<Book>();
-        new Biblioteca(books, printStream);
+        Biblioteca biblioteca = new Biblioteca(books, printStream);
+        biblioteca.printWelcomeMessage();
         verify(printStream).println("Welcome to the Biblioteca!");
     }
 }
