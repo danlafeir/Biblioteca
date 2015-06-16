@@ -10,10 +10,7 @@ public class Biblioteca {
 
     Biblioteca(PrintStream printStream){
         this.printStream = printStream;
-        //printStream.println("Welcome to Biblioteca!");
+        printStream.println("Welcome to the Biblioteca!");
     }
 
-    public void printWelcomeMessage() {
-        printStream.println("Welcome to Biblioteca!");
-    }
 }

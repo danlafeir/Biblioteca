@@ -18,8 +18,7 @@ public class ExampleTest {
     @Test
     public void shouldDisplayWelcomeMessage(){
         PrintStream printStream = mock(PrintStream.class);
-        Biblioteca biblioteca = new Biblioteca(printStream);
-        biblioteca.printWelcomeMessage();
-        verify(printStream).println("Welcome to the Biblioteca");
+        new Biblioteca(printStream);
+        verify(printStream).println("Welcome to the Biblioteca! ");
     }
 }
