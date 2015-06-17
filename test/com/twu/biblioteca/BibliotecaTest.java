@@ -5,10 +5,8 @@ import org.junit.Test;
 
 import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import static java.util.Arrays.asList;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -29,12 +27,12 @@ public class BibliotecaTest {
 
     @Test
     public void shouldPrintBookNameWhenBibliotecaHasOneBook(){
-        books.add(new Book("BookName"));
+        books.add(new Book("Go Dog Go", "Dr Suess", "1990"));
         biblioteca = new Biblioteca(books, printStream);
 
         biblioteca.printListOfBooks();
 
-        verify(printStream).println("BookName");
+        verify(printStream).print("Go Dog Go : Dr Suess : 1990\n");
     }
 
     @Test
@@ -43,7 +41,20 @@ public class BibliotecaTest {
 
         biblioteca.printListOfBooks();
 
-        verify(printStream).println("");
+        verify(printStream).print("");
     }
+
+    @Test
+    public void shouldPrintTwoBooksWhenThereAreTwoInBiblioteca(){
+        books.add(new Book("Go Dog Go", "Dr Suess", "1990"));
+        books.add(new Book("Green Eggs and Ham", "Dr Suess", "1991"));
+        biblioteca = new Biblioteca(books, printStream);
+
+        biblioteca.printListOfBooks();
+
+        verify(printStream).print("Go Dog Go : Dr Suess : 1990\nGreen Eggs and Ham : Dr Suess : 1991\n");
+    }
+
+
 
 }

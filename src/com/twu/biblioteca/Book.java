@@ -1,12 +1,22 @@
 package com.twu.biblioteca;
 
+import com.sun.deploy.util.StringUtils;
+
 /**
  * Created by dlafeir on 6/16/15.
  */
 public class Book {
-    private String book;
+    private String bookName;
+    private String author;
+    private String year;
 
-    public Book(String book) {
-        this.book = book;
+    public Book(String bookName, String author, String year) {
+        this.bookName = bookName;
+        this.author = author;
+        this.year = year;
+    }
+
+    public String getBookDetails() {
+        return bookName + " : " + author  + " : " + year;
     }
 }

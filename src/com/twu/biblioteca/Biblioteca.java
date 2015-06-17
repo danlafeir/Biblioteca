@@ -15,15 +15,20 @@ public class Biblioteca {
         this.printStream = printStream;
     }
 
+    public void openTheBiblioteca(){
+        this.printWelcomeMessage();
+        this.printListOfBooks();
+    }
+
     public void printWelcomeMessage() {
         printStream.println("Welcome to the Biblioteca!");
     }
 
     public void printListOfBooks() {
-        if(!books.isEmpty()){
-            printStream.println("BookName");
-        } else {
-            printStream.println("");
+        String listofBooks = "";
+        for (Book book : books) {
+            listofBooks += book.getBookDetails() + "\n";
         }
+        printStream.print(listofBooks);
     }
 }
