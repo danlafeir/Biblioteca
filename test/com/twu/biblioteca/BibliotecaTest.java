@@ -9,6 +9,7 @@ import java.util.List;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 /**
  * Created by dlafeir on 6/16/15.
@@ -27,12 +28,14 @@ public class BibliotecaTest {
 
     @Test
     public void shouldPrintBookNameWhenBibliotecaHasOneBook(){
-        books.add(new Book("Go Dog Go", "Dr Suess", "1990"));
+        Book book = mock(Book.class);
+        when(book.getBookDetails()).thenReturn("Book1Details");
+        books.add(book);
         biblioteca = new Biblioteca(books, printStream);
 
         biblioteca.printListOfBooks();
 
-        verify(printStream).print("Go Dog Go : Dr Suess : 1990\n");
+        verify(printStream).print("Book1Details\n");
     }
 
     @Test
@@ -46,13 +49,15 @@ public class BibliotecaTest {
 
     @Test
     public void shouldPrintTwoBooksWhenThereAreTwoInBiblioteca(){
-        books.add(new Book("Go Dog Go", "Dr Suess", "1990"));
-        books.add(new Book("Green Eggs and Ham", "Dr Suess", "1991"));
+        Book book1 = mock(Book.class);
+        when(book1.getBookDetails()).thenReturn("Book1Details");
+        books.add(book1);
+        books.add(book1);
         biblioteca = new Biblioteca(books, printStream);
 
         biblioteca.printListOfBooks();
 
-        verify(printStream).print("Go Dog Go : Dr Suess : 1990\nGreen Eggs and Ham : Dr Suess : 1991\n");
+        verify(printStream).print("Book1Details\nBook1Details\n");
     }
 
     @Test
@@ -63,6 +68,7 @@ public class BibliotecaTest {
 
         verify(printStream).println("1) List Books");
     }
+
 
 
 

@@ -17,6 +17,10 @@ public class Book {
     }
 
     public String getBookDetails() {
-        return bookName + " : " + author  + " : " + year;
+        StringBuilder stringbuilder = new StringBuilder();
+        stringbuilder.insert(0,bookName);
+        stringbuilder.insert(20, author);
+        stringbuilder.insert(40, year);
+        return stringbuilder.toString();
     }
 }
