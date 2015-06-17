@@ -15,11 +15,6 @@ public class Biblioteca {
         this.printStream = printStream;
     }
 
-    public void openTheBiblioteca(){
-        this.printWelcomeMessage();
-        this.printListOfBooks();
-    }
-
     public void printWelcomeMessage() {
         printStream.println("Welcome to the Biblioteca!");
     }
@@ -30,5 +25,9 @@ public class Biblioteca {
             listofBooks += book.getBookDetails() + "\n";
         }
         printStream.print(listofBooks);
+    }
+
+    public void displayMenu() {
+        printStream.println("1) List Books");
     }
 }

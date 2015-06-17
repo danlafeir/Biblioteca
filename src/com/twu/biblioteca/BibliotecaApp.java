@@ -19,6 +19,9 @@ public class BibliotecaApp {
     }
 
     public void run(){
-        biblioteca.openTheBiblioteca();
+        biblioteca.printWelcomeMessage();
+        biblioteca.displayMenu();
     }
+
+
 }

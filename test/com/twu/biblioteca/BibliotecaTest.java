@@ -55,6 +55,15 @@ public class BibliotecaTest {
         verify(printStream).print("Go Dog Go : Dr Suess : 1990\nGreen Eggs and Ham : Dr Suess : 1991\n");
     }
 
+    @Test
+    public void shouldPrintListBooksMenuOptionWhenCallingListMenu(){
+        biblioteca = new Biblioteca(books, printStream);
+
+        biblioteca.displayMenu();
+
+        verify(printStream).println("1) List Books");
+    }
+
 
 
 }

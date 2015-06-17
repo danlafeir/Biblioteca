@@ -1,16 +1,23 @@
 package com.twu.biblioteca;
 
 
-import static org.junit.Assert.assertEquals;
+import org.junit.Before;
 import org.junit.Test;
 
-import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.mockito.Mockito.*;
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 public class BibliotecaAppTest {
+
+    private Biblioteca biblioteca;
+    private BibliotecaApp bibliotecaApp;
+
+    @Before
+    public void setUp() {
+        biblioteca = mock(Biblioteca.class);
+        bibliotecaApp = new BibliotecaApp(biblioteca);
+    }
 
     @Test
     public void test() {
@@ -18,11 +25,14 @@ public class BibliotecaAppTest {
     }
 
     @Test
-    public void shouldDisplayWelcomeMessage(){
-        PrintStream printStream = mock(PrintStream.class);
-        List<Book> books = new ArrayList<Book>();
-        Biblioteca biblioteca = new Biblioteca(books, printStream);
-        biblioteca.printWelcomeMessage();
-        verify(printStream).println("Welcome to the Biblioteca!");
+    public void shouldDisplayWelcomeMessageOnRun(){
+        bibliotecaApp.run();
+        verify(biblioteca).printWelcomeMessage();
+    }
+
+    @Test
+    public void shouldDisplayMenuOptionsOnRun(){
+        bibliotecaApp.run();
+        verify(biblioteca).displayMenu();
     }
 }
